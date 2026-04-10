@@ -18,17 +18,17 @@ Provides memory for AI via containerized MCP servers
 * Edit tunnel configuration to point "mcp.yourdmain.com" to http://authmcp-gateway-ai:8000
 * Logon to https://mcp.yourdomain.com/admin
 
-* [Setup MCP servers]
-* [Create user]
-* [Connect AI]
-* [Plan for backups]
+* [TODO: Setup MCP servers]
+* [TODO: Create user]
+* [TODO: Connect AI]
+* [TODO: Plan for backups]
 
 
 # What is it good for?
 
 AI in the current available LLMs is stateless.
 There's platforms providing convenience services ("memories") that are either created by the model (ChatGPT's "Remember this and that ...") or on a schedule from chats held with the AI (Claude on the web).
-Whenever a new chat is statred, context is enriched from those convenience services or from files attached to "project folders".
+Whenever a new chat is started, context is enriched from those convenience services or from files attached to "project folders".
 All major platforms support one or the other method of providing system prompts for behaviour of the model.
 
 Not everybody uses AI the same.
