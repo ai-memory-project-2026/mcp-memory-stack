@@ -12,7 +12,9 @@ Provides memory for AI via containerized MCP servers
 * **Tunnel:** In your Cloudflare dashboard, start the setup for a **Cloudflare Tunnel** to obtain your **Tunnel Token**.
 
 ### 2. Installation
-SSH into the VPS and run the following command, which will load and execute the install script from here
+SSH into the VPS and run the following command, which will load and execute the install script from here.
+(Never run scripts from the internet without checking, though. Let your AI check on it.)
+
 ```bash
 wget https://github.com/ai-memory-project-2026/mcp-memory-stack/raw/refs/heads/main/install.sh | bash
 ```
