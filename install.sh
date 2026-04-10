@@ -217,12 +217,19 @@ setup_memory_infrastructure() {
     fi
     
     # Get information from user (later, hardcoded for testing)
-    DOMAIN=https://example.com
+    DOMAIN=example.com
 
     # Clone AuthMCP Gateway
-    log_info "Cloning additional sources..."
-    git clone https://github.com/loglux/authmcp-gateway
-    
+     if [[ -d "${INSTALL_DIR}/authmcp-gateway/.git" ]]; then
+        cd ${INSTALL_DIR}/authmcp-gateway
+        log_info "Repository already exists, pulling latest changes..."
+        git pull
+        cd ..
+    else
+        log_info "Cloning repository from ${REPO_URL}..."
+        git clone "https://github.com/loglux/authmcp-gateway"
+    fi
+        
     # Generate secrets
     log_info "Generating secrets..."
     JWT_SECRET_KEY=$(generate_secret)
@@ -314,7 +321,7 @@ MCP_API_KEY=${MCP_API_KEY}
 MCP_OAUTH_SECRET_KEY=${MCP_OAUTH_SECRET_KEY}
 
 # Additional configuration
-DOMAIN=${DOMAIN:-empty}
+DOMAIN=${DOMAIN}
 INSTALL_DIR=${INSTALL_DIR}
 
 EOF
