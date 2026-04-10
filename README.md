@@ -6,10 +6,9 @@ Provides memory for AI via containerized MCP servers
     (https://dash.cloudflare.com/sign-up)
 * Register a domain of your choice with Cloudflare (~15$/year)
 * Get a VPS
-e.g. CX23 at https://accounts.hetzner.com/signUp ~$6/mo
-or
-Cloud VPS 10 at https://contabo.com/de/register/email/
-or ask someone who can make a recommendation.
+    * e.g. CX23 at https://accounts.hetzner.com/signUp ~$6/mo
+    * or Cloud VPS 10 at https://contabo.com/de/register/email/
+    * or ask someone who can make a recommendation.
 * Start setup of a Cloudflare tunnel to get a tunnel token
 * SSH into the VPS and run
   'wget https://github.com/ai-memory-project-2026/mcp-memory-stack/raw/refs/heads/main/install.sh | bash'
