@@ -15,6 +15,7 @@ Provides memory for AI via containerized MCP servers
 SSH into the VPS and run the following command, which will load and execute the install script from here
 ```bash
 wget https://github.com/ai-memory-project-2026/mcp-memory-stack/raw/refs/heads/main/install.sh | bash
+```
 
 * Input your domain name when asked (e.g. yourdomain.com)
 * Input your Cloudflare tunnel token when asked
