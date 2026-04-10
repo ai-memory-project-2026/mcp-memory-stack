@@ -208,7 +208,8 @@ setup_memory_infrastructure() {
     cd "${INSTALL_DIR}"
 
     # Create data directories
-    mkdir -p ./data/authmcp-gateway/data    
+    mkdir -p ./data/authmcp-gateway/data
+    chmod 777 ./data
     mkdir -p ./data/basic-memory/{config,knowledge}
     chmod -R 777 ./data/basic-memory
     mkdir -p ./data/mcp-memory-service/{backup,data,sqlite}
