@@ -237,7 +237,7 @@ setup_memory_infrastructure() {
 TUNNEL_TOKEN=${TUNNEL_TOKEN:-empty}
 
 # Additional configuration
-DOMAIN=${DOMAIN}
+DOMAIN=${DOMAIN:-empty}
 INSTALL_DIR=${INSTALL_DIR}
 
 EOF
