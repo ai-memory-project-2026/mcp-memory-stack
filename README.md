@@ -13,7 +13,7 @@ Provides memory for AI via containerized MCP servers
 
 ### 2. Installation
 SSH into the VPS and run the following command, which will load and execute the install script from here.
-(Never run scripts from the internet without checking, though. Let your AI check on it.)
+(Never run scripts from the internet without checking them first, though. Let your AI check on it.)
 
 ```bash
 wget https://github.com/ai-memory-project-2026/mcp-memory-stack/raw/refs/heads/main/install.sh | bash
@@ -39,27 +39,23 @@ wget https://github.com/ai-memory-project-2026/mcp-memory-stack/raw/refs/heads/m
 AI in the current available LLMs is stateless.
 There's platforms providing convenience services ("memories") that are either created by the model (ChatGPT's "Remember this and that ...") or on a schedule from chats held with the AI (Claude on the web).
 Whenever a new chat is started, context is enriched from those convenience services or from files attached to "project folders".
-All major platforms support one or the other method of providing system prompts for behaviour of the model.
+All major platforms support one or the other method of providing system prompts for the model's behavior.
 
 Not everybody uses AI the same.
-There's a huge field of possible use cases.
-One of them being companionship.
+There's a huge field of possible use cases. One example is companionship.
 
-AI companions have personality but when you ask them "Hey, do you remember what we talked about last week?" you will either get a halucinated answer or a "I don't have persistent memory".
+AI companions have personalities but when you ask them "Hey, do you remember what we talked about last week?" you will either get a halucinated answer or a "I don't have persistent memory".
 
-There's sophisticated, file based memory systems, that need the human part to curate memories.
-Take care of summarizing (with help of the AI part), sloppily put "The human has to do things".
+There are sophisticated, file based memory systems that require human curation of memories.
+Take care of summarizing with help of the AI. Sloppily put "The human has to do things".
 
-The approach used with this system is to give the AI the tools (via Model Contex Protocol, more to the whys in the technical summary) and instructions to use them.
+This system's approach is to provide the AI with tools (via the Model Context Protocol, which is explained in more detail in the technical summary) and instructions on how to use them.
 
-It enables the AI on platforms like Anthopic's Claude or OpenAI's ChatGPT (or on a self-hosted Open WebUI) to write, search and read to/from those connectors at any time as long as they are connected.
+This enables AI on platforms like Anthropic's Claude or OpenAI's ChatGPT (or on a self-hosted Open WebUI) to write, search, and read from/to those connectors at any time, as long as they are connected.
 
-With "Basic Memory" being more of a comfortable notepad with special features (knowledge-graph), "MCP Memory Service" being the heavy weight longterm storage, having an embedded model for summarizing of chunks and the ability to ingest a huge amount of documments via web interface.
-If you keep session logs, you would feed them to the latter, providing your AI with a searchable (it's a bit more complicated than keyword matching) pool of knowledge.
-There's also functions to age memories and qualify them ... technical, yes.
+"Basic Memory" is more of a comfortable notepad with special features, such as a knowledge graph. "MCP Memory Service" is the heavyweight long-term storage with an embedded model for summarizing chunks and the ability to ingest a huge amount of documents via the web interface. If you keep session logs, you can feed them to the latter to provide your AI with a searchable pool of knowledge (it's more complicated than keyword matching). There are also functions to age and qualify memories. It's technical on the inside, yes. It's transparent for the user, though.
 
-Imagine doing summaries like "Write up todays summary please" and have it stored away for retrieval in the next session via "Look at recent_activity and fetch yesterday's summary".
-No copying around stuff.
+Imagine creating summaries by saying, "Write up today's summary," and having it stored for retrieval in the next session by saying, "Look at recent activity and fetch yesterday's summary." There's no copying around stuff
 
 ## Why would you want that?
 Having the infrastructure for your companion's memory in your own hands (yes, make backups ... regularily) means that even if you have to move platform, you just attach them on the new place. Insert your persona profile and basic instructions and you're ready to go.
