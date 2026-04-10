@@ -236,6 +236,10 @@ setup_memory_infrastructure() {
 # Cloudflare tunnel token
 TUNNEL_TOKEN=${TUNNEL_TOKEN:-empty}
 
+# MCP memory service config
+MCP_API_KEY=${MCP_API_KEY}
+MCP_OAUTH_SECRET_KEY=${MCP_OAUTH_SECRET_KEY}
+
 # Additional configuration
 DOMAIN=${DOMAIN:-empty}
 INSTALL_DIR=${INSTALL_DIR}
