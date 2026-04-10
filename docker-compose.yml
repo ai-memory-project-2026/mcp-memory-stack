@@ -15,12 +15,12 @@ services:
 #######################
 # AuthMCP Gateway
 #######################
-  authmcp-gateway:
+  authmcp-gateway-ai:
     build:
       context: ./authmcp-gateway/
       args:
         GIT_COMMIT: ${GIT_COMMIT:-unknown}
-    container_name: authmcp-gateway
+    container_name: authmcp-gateway-ai
     env_file:
       - ./authmcp-gateway/.env
     volumes:
@@ -35,7 +35,7 @@ services:
 #######################
 # Basic Memory
 #######################
-  basic-memory:
+  basic-memory-ai:
     image: ghcr.io/basicmachines-co/basic-memory:latest
     container_name: basic-memory-ai
     # Volume mounts for knowledge directories and persistent data
