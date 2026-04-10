@@ -207,13 +207,6 @@ setup_memory_infrastructure() {
     mkdir -p "${INSTALL_DIR}"
     cd "${INSTALL_DIR}"
 
-    # Create data directories
-    mkdir -p ./data/authmcp-gateway/data
-    chmod 777 ./data
-    mkdir -p ./data/basic-memory/{config,knowledge}
-    chmod -R 777 ./data/basic-memory
-    mkdir -p ./data/mcp-memory-service/{backup,data,sqlite}
-    
     # Clone repository
     if [[ -d "${INSTALL_DIR}/.git" ]]; then
         log_info "Repository already exists, pulling latest changes..."
@@ -222,6 +215,13 @@ setup_memory_infrastructure() {
         log_info "Cloning repository from ${REPO_URL}..."
         git clone "${REPO_URL}" .
     fi
+
+    # Create data directories
+    mkdir -p ./data/authmcp-gateway/data
+    chmod 777 ./data
+    mkdir -p ./data/basic-memory/{config,knowledge}
+    chmod -R 777 ./data/basic-memory
+    mkdir -p ./data/mcp-memory-service/{backup,data,sqlite}
     
     # Get information from user (later, hardcoded for testing)
     DOMAIN=example.com
