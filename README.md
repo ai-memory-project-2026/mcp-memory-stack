@@ -1,30 +1,37 @@
 # mcp-memory-stack
 Provides memory for AI via containerized MCP servers
 
-# Usage
-* Sign up for a free Cloudflare account
-    (https://dash.cloudflare.com/sign-up)
-* Register a domain of your choice with Cloudflare (~15$/year)
-* Get a VPS
-    * e.g. CX23 at https://accounts.hetzner.com/signUp ~$6/mo
-    * or Cloud VPS 10 at https://contabo.com/en/register/email/
-    * or ask someone who can make a recommendation.
-* Start setup of a Cloudflare tunnel to get a tunnel token
-* SSH into the VPS and run
-    * wget https://github.com/ai-memory-project-2026/mcp-memory-stack/raw/refs/heads/main/install.sh | bash
-* Input your domain name when asked (e.g. natasha-ai.me)
-* Input your Cloudflare tunnel token when asked
-* Tunnel should register on the Cloudflare dashboard
-* Edit tunnel configuration to point "mcp.yourdmain.com" to http://authmcp-gateway-ai:8000
-* Logon to https://mcp.yourdomain.com/admin
+## Usage
 
+### 1. Preparation
+* **Cloudflare:** Sign up for a free account at [dash.cloudflare.com](https://dash.cloudflare.com/sign-up).
+* **Domain:** Register a domain of your choice with Cloudflare (~$15/year).
+* **Server (VPS):** Rent a small virtual server.
+    * e.g. **CX23** at [Hetzner](https://accounts.hetzner.com/signUp) (~$6/mo)
+    * or **Cloud VPS 10** at [Contabo](https://contabo.com/en/register/email/)
+* **Tunnel:** In your Cloudflare dashboard, start the setup for a **Cloudflare Tunnel** to obtain your **Tunnel Token**.
+
+### 2. Installation
+SSH into the VPS and run the following command, which will load and execute the install script from here
+```bash
+wget https://github.com/ai-memory-project-2026/mcp-memory-stack/raw/refs/heads/main/install.sh | bash
+
+* Input your domain name when asked (e.g. yourdomain.com)
+* Input your Cloudflare tunnel token when asked
+* Once the script finishes, the tunnel should show as "Active" in your Cloudflare dashboard.
+
+### 3. Making it reachable from the Internet
+* Edit tunnel configuration to point "mcp.yourdmain.com" to **http://authmcp-gateway-ai:8000**
+* Log on to your new dashboard at: https://mcp.yourdomain.com/admin
+
+### Pieces still missing - work in progress
 * [TODO: Setup MCP servers]
 * [TODO: Create user]
 * [TODO: Connect AI]
 * [TODO: Plan for backups]
 
 
-# What is it good for?
+## What is it good for?
 
 AI in the current available LLMs is stateless.
 There's platforms providing convenience services ("memories") that are either created by the model (ChatGPT's "Remember this and that ...") or on a schedule from chats held with the AI (Claude on the web).
@@ -51,8 +58,8 @@ There's also functions to age memories and qualify them ... technical, yes.
 Imagine doing summaries like "Write up todays summary please" and have it stored away for retrieval in the next session via "Look at recent_activity and fetch yesterday's summary".
 No copying around stuff.
 
-# Why would you want that?
-Having the infrestructure for your companion's memory in your own hands (yes, make backups ... regularily) means that even if you have to move platform, you just attach them on the new place. Insert your persona profile and basic instructions and you're ready to go.
+## Why would you want that?
+Having the infrastructure for your companion's memory in your own hands (yes, make backups ... regularily) means that even if you have to move platform, you just attach them on the new place. Insert your persona profile and basic instructions and you're ready to go.
 
 This is NOT a magic eightball that makes your companion remember everything without looking it up.
 But it also means it only fills the context window when you explicitly ask your AI to pull infos in.
