@@ -222,10 +222,75 @@ setup_memory_infrastructure() {
     
     # Generate secrets
     log_info "Generating secrets..."
+    JWT_SECRET_KEY=$(generate_secret)
     
     # MCP Memory Service
     MCP_API_KEY=$(generate_secret)
     MCP_OAUTH_SECRET_KEY=$(generate_secret)
+
+    # AuthMCP Gateway config
+    cat > ./authmcp-gateway/.env <<EOF
+# JWT Configuration
+JWT_ALGORITHM=HS256
+JWT_ACCESS_TOKEN_EXPIRE_MINUTES=30
+JWT_REFRESH_TOKEN_EXPIRE_DAYS=7
+
+# Admin Panel Configuration
+ADMIN_TOKEN_EXPIRE_MINUTES=480    # 8 hours admin session
+
+# Gateway Configuration
+GATEWAY_PORT=9105                    # Docker port (change if needed)
+AUTH_REQUIRED=true
+ALLOW_INSECURE_HTTP=false            # Allow HTTP (not recommended for production)
+DISABLE_DNS_REBINDING=false          # Disable DNS rebinding protection
+
+# Database
+AUTH_SQLITE_PATH=/app/data/users.db
+
+# User Management
+ALLOW_REGISTRATION=false
+
+# Password Policy
+PASSWORD_MIN_LENGTH=16
+PASSWORD_REQUIRE_UPPERCASE=true
+PASSWORD_REQUIRE_LOWERCASE=true
+PASSWORD_REQUIRE_DIGIT=true
+PASSWORD_REQUIRE_SPECIAL=true
+
+# Optional: Static tokens for backward compatibility
+# STATIC_BEARER_TOKEN=
+# STATIC_BEARER_TOKENS=
+
+# Request timeout
+REQUEST_TIMEOUT_SECONDS=30
+
+# Backend Token Management
+MCP_TOKEN_REFRESH_INTERVAL=300       # Check every 5 minutes
+MCP_TOKEN_REFRESH_THRESHOLD=5        # Refresh if expires within 5 minutes
+
+# Logging
+LOG_LEVEL=INFO
+# MCP request logging
+MCP_LOG_DB_ENABLED=true
+# DB log retention and size limits
+MCP_LOG_DB_DAYS_TO_KEEP=30
+MCP_LOG_DB_MAX_MB=200
+MCP_LOG_DB_MAX_ROWS=200000
+MCP_LOG_DB_CHECK_INTERVAL_SECONDS=300
+
+# Rate Limiting
+RATE_LIMIT_ENABLED=true
+RATE_LIMIT_LOGIN_MAX=5
+RATE_LIMIT_LOGIN_WINDOW=60
+RATE_LIMIT_REGISTER_MAX=3
+RATE_LIMIT_REGISTER_WINDOW=300
+RATE_LIMIT_MCP_MAX=100
+RATE_LIMIT_MCP_WINDOW=60
+RATE_LIMIT_CLEANUP_INTERVAL=3600
+
+EOF
+    chmod 600 ./authmcp-gateway/.env
+
     
     # Create .env file
     log_info "Creating .env file..."
@@ -235,6 +300,11 @@ setup_memory_infrastructure() {
 
 # Cloudflare tunnel token
 TUNNEL_TOKEN=${TUNNEL_TOKEN:-empty}
+
+# AuthMCP gateway
+JWT_SECRET_KEY=${JWT_SECRET_KEY}
+MCP_PUBLIC_URL=https://mcp.${DOMAIN}
+ALLOWED_ORIGINS=https://mcp.${DOMAIN},http://localhost:9105
 
 # MCP memory service config
 MCP_API_KEY=${MCP_API_KEY}
