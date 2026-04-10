@@ -215,6 +215,10 @@ setup_memory_infrastructure() {
         log_info "Cloning repository from ${REPO_URL}..."
         git clone "${REPO_URL}" .
     fi
+
+    # Clone AuthMCP Gateway
+    log_info "Cloning additional sources..."
+    git clone https://github.com/loglux/authmcp-gateway
     
     # Generate secrets
     log_info "Generating secrets..."
@@ -230,7 +234,7 @@ setup_memory_infrastructure() {
 # Generated on $(date)
 
 # Cloudflare tunnel token
-TUNNEL_TOKEN=${TUNNEL_TOKEN}
+TUNNEL_TOKEN=${TUNNEL_TOKEN:-empty}
 
 # Additional configuration
 DOMAIN=${DOMAIN}
