@@ -23,6 +23,9 @@ services:
     container_name: authmcp-gateway-ai
     env_file:
       - ./authmcp-gateway/.env
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - MCP_PUBLIC_URL=${MCP_PUBLIC_URL}
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS}
     volumes:
       - ./data/authmcp-gateway/data:/app/data
       - ./authmcp-gateway/templates:/app/templates
