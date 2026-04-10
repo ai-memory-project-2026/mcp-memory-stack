@@ -223,8 +223,16 @@ setup_memory_infrastructure() {
     chmod -R 777 ./data/basic-memory
     mkdir -p ./data/mcp-memory-service/{backup,data,sqlite}
     
-    # Get information from user (later, hardcoded for testing)
-    DOMAIN=example.com
+    # Get domain from user or use argument
+    if [[ -n "${3:-}" ]]; then
+        DOMAIN="$3"
+    else
+        read -p "Enter your domain (e.g., natasha-ai.me): " DOMAIN
+        DOMAIN=${DOMAIN:-example.com}
+    fi
+    
+    read -p "Enter your Clouflare tunnel token: " TUNNEL_TOKEN
+    TUNNEL_TOKEN=${TUNNEL_TOKEN:-NEEDS_REPLACEMENT_URGENTLY}
 
     # Clone AuthMCP Gateway
      if [[ -d "${INSTALL_DIR}/authmcp-gateway/.git" ]]; then
@@ -368,6 +376,7 @@ main() {
     # Parse arguments
     local INSTALL_DIR="${1:-/srv/ai-memory}"
     local REPO_URL="${2:-https://github.com/ai-memory-project-2026/mcp-memory-stack/}"
+    local DOMAIN="${3:-}"
     
     check_root
     detect_os
@@ -378,7 +387,7 @@ main() {
     echo
     install_docker
     echo
-    setup_memory_infrastructure "${INSTALL_DIR}" "${REPO_URL}"
+    setup_memory_infrastructure "${INSTALL_DIR}" "${REPO_URL}" "${DOMAIN}"
     echo
     start_infrastructure "${INSTALL_DIR}"
     
