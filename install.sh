@@ -206,6 +206,12 @@ setup_memory_infrastructure() {
     log_info "Creating installation directory: ${INSTALL_DIR}"
     mkdir -p "${INSTALL_DIR}"
     cd "${INSTALL_DIR}"
+
+    # Create data directories
+    mkdir -p ./data/authmcp-gateway/data    
+    mkdir -p ./data/basic-memory/{config,knowledge}
+    chmod -R 777 ./data/basic-memory
+    mkdir -p ./data/mcp-memory-service/{backup,data,sqlite}
     
     # Clone repository
     if [[ -d "${INSTALL_DIR}/.git" ]]; then
