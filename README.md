@@ -17,7 +17,7 @@ Provides memory for AI via containerized MCP servers
 * Input your domain name when asked (e.g. natasha-ai.me)
 * Input your Cloudflare tunnel token when asked
 * Tunnel should register on the Cloudflare dashboard
-* Edit tunnel configuration tp point "mcp.yourdmain.com" to http://authmcp-gateway-ai:8000
+* Edit tunnel configuration to point "mcp.yourdmain.com" to http://authmcp-gateway-ai:8000
 * Logon to https://mcp.yourdomain.com/admin
 
 * [Setup MCP servers]
