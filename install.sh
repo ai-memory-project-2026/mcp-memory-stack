@@ -3,6 +3,15 @@
 # Install script for AI MCP memory project
 ###########################################
 
+# Ensure we're running under bash
+if [ -z "$BASH_VERSION" ]; then
+    echo "Error: This script requires bash. Please run with:"
+    echo "  bash $0"
+    echo "  or"
+    echo "  curl -fsSL https://example.com/install.sh | bash"
+    exit 1
+fi
+
 set -euo pipefail
 
 # Colors for output
