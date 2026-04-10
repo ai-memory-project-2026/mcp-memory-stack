@@ -76,7 +76,7 @@ detect_package_manager() {
 
 # Check if running as root
 check_root() {
-    if [[ $EUID -ne 0 ]]; then
+    if [[ $(id -u) -ne 0 ]]; then
         log_error "This script must be run as root"
         exit 1
     fi
