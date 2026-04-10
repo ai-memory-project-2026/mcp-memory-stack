@@ -215,6 +215,9 @@ setup_memory_infrastructure() {
         log_info "Cloning repository from ${REPO_URL}..."
         git clone "${REPO_URL}" .
     fi
+    
+    # Get information from user (later, hardcoded for testing)
+    DOMAIN=https://example.com
 
     # Clone AuthMCP Gateway
     log_info "Cloning additional sources..."
