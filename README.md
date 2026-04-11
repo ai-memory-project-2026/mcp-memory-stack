@@ -27,12 +27,13 @@ wget -qO - https://github.com/ai-memory-project-2026/mcp-memory-stack/raw/refs/h
 * Edit tunnel configuration to point "mcp.yourdmain.com" to **http://authmcp-gateway-ai:8000**
 * Log on to your new dashboard at: https://mcp.yourdomain.com/admin
 
-### Pieces still missing - work in progress
-* [TODO: Setup MCP servers]
-* [TODO: Create user]
-* [TODO: Connect AI]
-* [TODO: Plan for backups]
+### 4. Get everyting connected
 
+[MCP Server Setup](https://github.com/ai-memory-project-2026/mcp-memory-stack/wiki/MCP-Server-Setup)
+
+### Pieces still missing - work in progress
+* [TODO: Plan for backups]
+* [TODO: Prompts to instruct your AI]
 
 ## What is it good for?
 
