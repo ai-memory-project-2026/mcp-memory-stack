@@ -230,6 +230,7 @@ setup_memory_infrastructure() {
         read -p "Enter your domain (e.g., natasha-ai.me): " DOMAIN
         DOMAIN=${DOMAIN:-example.com}
     fi
+    log_info "Using domain: ${DOMAIN}"
     
     read -p "Enter your Clouflare tunnel token: " TUNNEL_TOKEN
     TUNNEL_TOKEN=${TUNNEL_TOKEN:-NEEDS_REPLACEMENT_URGENTLY}
