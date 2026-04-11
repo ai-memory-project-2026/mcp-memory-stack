@@ -16,7 +16,7 @@ SSH into the VPS and run the following command, which will load and execute the 
 (Never run scripts from the internet without checking them first, though. Let your AI check on it.)
 
 ```bash
-wget https://github.com/ai-memory-project-2026/mcp-memory-stack/raw/refs/heads/main/install.sh | bash
+wget -qO - https://github.com/ai-memory-project-2026/mcp-memory-stack/raw/refs/heads/main/install.sh | bash
 ```
 
 * Input your domain name when asked (e.g. yourdomain.com)
